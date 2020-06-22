@@ -10,10 +10,6 @@
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/popkovandrey/apsoft-test.git"
-  },
   "private": true,
   "dependencies": {
     "@angular/animations": "~9.1.11",
