@@ -1,16 +1,7 @@
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding-top: 1rem;
-}
-
 .col {
     display: inline-block; 
     height: 100%;
-    background-color: black;
-    color: aliceblue;
     padding: 0px 5px;
-    cursor: pointer;
 }
 
 .pid {
@@ -30,5 +21,9 @@
 .mem {
     width: 80px;
     text-align: right;
+}
+
+.even {
+    background-color: #ccc;
 }
 	
