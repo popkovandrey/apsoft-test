@@ -1,27 +1,18 @@
-# NgBasics
+# Тестовое задание в компании АП Софт
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.9.
+[Preview is here](https://guarded-spire-93816.herokuapp.com//)
 
-## Development server
+## Задание
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Реализовать форму мониторинга состояния процессов в системе с динамическим обновлением информации о загруженности и занимаемой памяти. Информацию следует брать с backend. в качестве backend'а можно использовать как реальную реализацию, так и заглушку (например, сервис в angular с автогенерацией параметров).
+Основное требование - экранная форма должна обновлять информацию без полной перерисовки всего интерфейса. Ожидаемое поведение – как в Task Manager Windows/$ top из Linux
 
-## Code scaffolding
+P.S. Выполнить задание на Angular.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Решение
 
-## Build
+Выводится таблица с 20-ю процессами. Данные (cpu, memory) рандомно генерит backend (express) - GET /api/procs. Возврат в формате json. Периодичность асинхронных запросов фронтом - 3 сек.
+Информация в столбцах доступна для сортировки.
+Развернул на heroku ([Preview is here](https://guarded-spire-93816.herokuapp.com//)).
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+ 
