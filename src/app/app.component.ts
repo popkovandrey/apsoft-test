@@ -130,6 +130,8 @@ const updateProcs = (procs, sortRule) => {
     })
     .catch(console.log)
     .finally(() => {
-      setTimeout(updateProcs, 3000, procs, sortRule);
+      setTimeout(updateProcs, updatePeriod, procs, sortRule);
     })
 }
+
+const updatePeriod = 3000;
