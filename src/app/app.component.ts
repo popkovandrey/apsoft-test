@@ -127,8 +127,9 @@ const updateProcs = (procs, sortRule) => {
       if (fieldName === 'cpu' || fieldName === 'memory') {
         sortProcs(procs, sortRule);
       }
-
+    })
+    .catch(console.log)
+    .finally(() => {
       setTimeout(updateProcs, 3000, procs, sortRule);
     })
-    .catch(console.log);
 }

@@ -1,6 +1,6 @@
 <div class="proc">
     <div class="col pid {{ proc.evenRow }}">{{ proc.pid }}</div>
     <div class="col title {{ proc.evenRow }}">{{ proc.title }}</div>
-    <div class="col cpu {{ proc.evenRow }}">{{ proc.cpu }}</div>
-    <div class="col mem {{ proc.evenRow }}">{{ proc.memory }}</div>
+    <div class="col cpu {{ proc.evenRow }}">{{ proc.cpu.toFixed(1) }}</div>
+    <div class="col mem {{ proc.evenRow }}">{{ proc.memory.toFixed(1) }}</div>
 </div>
