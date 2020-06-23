@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Proc } from '../app.component';
 
 @Component({
@@ -6,13 +6,9 @@ import { Proc } from '../app.component';
   templateUrl: './proc.component.html',
   styleUrls: ['./proc.component.css']
 })
-export class ProcComponent implements OnInit {
+
+export class ProcComponent {
 
   @Input() proc: Proc;
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
 
 }
