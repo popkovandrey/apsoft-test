@@ -21,9 +21,14 @@ export class AppComponent implements OnInit {
 
   signSortDirection = '^';
 
+  sortRule = {
+    fieldName: 'pid',
+    directionAsc: true,
+  };
+
   onClickSort(nameField): void {
     if (this.sortRule.fieldName === nameField) {
-      this.sortRule.directionAsc = !this.sortRule.directionAsc; 
+      this.sortRule.directionAsc = !this.sortRule.directionAsc;
     } else {
       this.sortRule.fieldName = nameField;
       this.sortRule.directionAsc = true;
@@ -31,11 +36,6 @@ export class AppComponent implements OnInit {
 
     sortProcs(this.procs, this.sortRule);
     this.signSortDirection = this.sortRule.directionAsc ? '^' : 'v';
-  };
-
-  sortRule = {
-    fieldName: 'pid',
-    directionAsc: true,
   }
 
   ngOnInit(): void {
@@ -48,7 +48,7 @@ export class AppComponent implements OnInit {
     sortProcs(this.procs, this.sortRule);
 
     updateProcs(this.procs, this.sortRule);
-  };
+  }
 }
 
 const compareNumbers = (fieldName, sortDirectionAsc) => {
@@ -101,7 +101,7 @@ const sortProcs = (procs, sortRule) => {
     memory: procs.sort(compareNumbers(sortRule.fieldName, sortRule.directionAsc)),
   };
 
-  mapping[sortRule.fieldName];
+  const res = mapping[sortRule.fieldName];
 
   for (let i = 0; i < procs.length; i += 1) {
     const evenClass = (i + 1) % 2 === 0 ? 'even' : '';
@@ -114,12 +114,12 @@ const updateProcs = (procs, sortRule) => {
   axios.get(`/api/procs`)
     .then((response) => {
       const responseProcs = response.data.procs.reduce(
-        (acc, item) => ({ ...acc, [item.pid]: item }), 
+        (acc, item) => ({ ...acc, [item.pid]: item }),
         {}
       );
 
       for (let i = 0; i < procs.length; i += 1) {
-        procs[i] = { ...procs[i], ...responseProcs[procs[i].pid] }; 
+        procs[i] = { ...procs[i], ...responseProcs[procs[i].pid] };
       }
 
       const { fieldName } = sortRule;
@@ -131,7 +131,7 @@ const updateProcs = (procs, sortRule) => {
     .catch(console.log)
     .finally(() => {
       setTimeout(updateProcs, updatePeriod, procs, sortRule);
-    })
-}
+    });
+};
 
 const updatePeriod = 3000;

@@ -7,7 +7,7 @@ import { Proc } from '../app.component';
   styleUrls: ['./proc.component.css']
 })
 export class ProcComponent implements OnInit {
-  
+
   @Input() proc: Proc;
 
   constructor() { }
